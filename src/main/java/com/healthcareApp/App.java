@@ -1,4 +1,4 @@
-package org.healthcareApp;
+package com.healthcareApp;
 
 /**
  * Hello world!
