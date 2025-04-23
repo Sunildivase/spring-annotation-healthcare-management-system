@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -21,7 +22,7 @@ public class App {
 
     private static ApplicationContext context;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         // Load Spring context
         context = new AnnotationConfigApplicationContext(App.class);

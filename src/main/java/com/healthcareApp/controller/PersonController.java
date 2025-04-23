@@ -1,10 +1,13 @@
 package com.healthcareApp.controller;
 
+import com.healthcareApp.model.Person;
 import com.healthcareApp.service.PersonService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 @AllArgsConstructor
@@ -12,11 +15,15 @@ import java.util.Scanner;
 @Component
 public class PersonController {
 
+    @Autowired
     private PersonService personService;
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public void run(){
+    public void run() throws SQLException {
+
+        Person person = new Person();
+
         int option;
         do{
             System.out.println("1.Create person");
@@ -38,11 +45,11 @@ public class PersonController {
                     break;
 
                 case 3:
-                    personService.updatePerson();
+                    personService.updatePerson(person.getPersonId(), person.getFirstName());
                     break;
 
                 case 4:
-                    personService.deletePerson();
+                    personService.deletePerson(person.getPersonId());
                     break;
 
                 default:
