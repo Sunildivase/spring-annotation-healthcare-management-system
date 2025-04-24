@@ -11,13 +11,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-/**
- * Hello world!
- */
-
 @Configuration
 @ComponentScan(basePackages = "com.healthcareApp")
 public class App {
+
     private static final Scanner scanner = new Scanner(System.in);
 
     private static ApplicationContext context;

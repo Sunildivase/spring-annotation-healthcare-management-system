@@ -1,8 +1,7 @@
 package com.healthcareApp.service;
 
 import com.healthcareApp.model.Person;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.healthcareApp.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-@AllArgsConstructor
-@Data
+
 @Service
-public class PersonService {
+public class PersonService{
 
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -49,7 +47,7 @@ public class PersonService {
         String contactNo = scanner.nextLine();
 
         System.out.println("please enter alternateMobile");
-        String alternateMobile = scanner.nextLine();
+        String  alternateMobile = scanner.nextLine();
 
         System.out.println("please enter address");
         String address = scanner.nextLine();

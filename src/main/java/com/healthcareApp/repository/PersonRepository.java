@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Repository
-public class personRepository {
+public class PersonRepository {
 
     private static Connection connection = null;
 
