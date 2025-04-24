@@ -1,5 +1,7 @@
 package com.healthcareApp;
 
+import com.healthcareApp.config.AppConfig;
+import com.healthcareApp.controller.DoctorController;
 import com.healthcareApp.controller.PersonController;
 import com.healthcareApp.service.PersonService;
 import org.springframework.context.ApplicationContext;
@@ -11,8 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-@Configuration
-@ComponentScan(basePackages = "com.healthcareApp")
+
 public class App {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -22,7 +23,7 @@ public class App {
     public static void main(String[] args) throws SQLException {
 
         // Load Spring context
-        context = new AnnotationConfigApplicationContext(App.class);
+        context = new AnnotationConfigApplicationContext(AppConfig.class);
 
         int option;
         do {
@@ -48,6 +49,8 @@ public class App {
                     break;
 
                 case 2:
+                    DoctorController doctorController = context.getBean("doctorController",DoctorController.class);
+                    doctorController.run();
                     System.out.println("doctor created successfully!!!");
                     break;
 
