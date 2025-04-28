@@ -75,6 +75,8 @@ public class App {
                     break;
 
                 case 7:
+                    BillingController billingController = context.getBean("billingController",BillingController.class);
+                    billingController.run();
                     System.out.println("billing created successfully!!!");
                     break;
 
