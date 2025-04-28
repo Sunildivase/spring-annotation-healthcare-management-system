@@ -69,6 +69,8 @@ public class App {
                     break;
 
                 case 6:
+                    PrescriptionController prescriptionController = context.getBean("prescriptionController",PrescriptionController.class);
+                    prescriptionController.run();
                     System.out.println("prescription created successfully!!!");
                     break;
 
