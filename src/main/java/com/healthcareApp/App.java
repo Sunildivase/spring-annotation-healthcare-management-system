@@ -2,17 +2,15 @@ package com.healthcareApp;
 
 import com.healthcareApp.config.AppConfig;
 import com.healthcareApp.controller.DoctorController;
+import com.healthcareApp.controller.HospitalController;
 import com.healthcareApp.controller.PersonController;
-import com.healthcareApp.service.PersonService;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 import java.sql.SQLException;
 import java.util.Scanner;
-
 
 public class App {
 
@@ -55,6 +53,8 @@ public class App {
                     break;
 
                 case 3:
+                    HospitalController hospitalController = context.getBean("hospitalController",HospitalController.class);
+                    hospitalController.run();
                     System.out.println("hospital created successfully!!!");
                     break;
 
