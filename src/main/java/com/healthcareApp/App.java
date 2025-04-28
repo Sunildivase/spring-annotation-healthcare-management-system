@@ -1,6 +1,7 @@
 package com.healthcareApp;
 
 import com.healthcareApp.config.AppConfig;
+import com.healthcareApp.controller.DepartmentController;
 import com.healthcareApp.controller.DoctorController;
 import com.healthcareApp.controller.HospitalController;
 import com.healthcareApp.controller.PersonController;
@@ -59,6 +60,8 @@ public class App {
                     break;
 
                 case 4:
+                    DepartmentController departmentController = context.getBean("departmentController",DepartmentController.class);
+                    departmentController.run();
                     System.out.println("department created successfully!!!");
                     break;
 

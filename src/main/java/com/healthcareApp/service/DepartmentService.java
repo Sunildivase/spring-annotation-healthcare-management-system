@@ -35,47 +35,44 @@ public class DepartmentService {
         System.out.println("please enter department Name");
         String deptName = scanner.nextLine();
 
-        System.out.println("please enter address");
-        String address = scanner.nextLine();
+        System.out.println("please enter doctorId");
+        int doctorId = Integer.parseInt(scanner.nextLine());
 
-        System.out.println("please enter emailId");
-        String emailId = scanner.nextLine();
+        System.out.println("please enter hospitalId");
+        int hospitalId= Integer.parseInt(scanner.nextLine());
 
-        System.out.println("please enter contactNo");
-        String contactNo = scanner.nextLine();
+        Department department = new Department(deptId,deptName,doctorId,hospitalId);
 
-        Hospital hospital = new Hospital(hospitalId,hospitalName,address,emailId,contactNo);
-
-        System.out.println("Doctor created successfully !!");
-        return hospitalRepository.createHospital(hospital);
+        System.out.println("Department created successfully !!");
+        return departmentRepository.createDepartment(department);
     }
 
-    public List<Hospital> displayHospital() throws SQLException {
+    public List<Department> displayDepartment() throws SQLException {
 
-        Hospital hospital = new Hospital();
+        Department department = new Department();
 
-        List<Hospital> hospitalList = new ArrayList<>();
+        List<Department> departmentList = new ArrayList<>();
 
-        System.out.println("hospital list: "+ hospitalRepository.displayHospital());
+        System.out.println("department list: "+ departmentRepository.displayDepartment());
 
-        return hospitalList;
+        return departmentList;
     }
 
-    public boolean updateHospital(int hospitalId,String hospitalName) throws SQLException {
+    public boolean updateDepartment(int deptId,String deptName) throws SQLException {
 
-        if (hospitalRepository.updateHospital(hospitalId, hospitalName)) {
-            System.out.println("hospital updated successfully ");
+        if (departmentRepository.updateDepartment(deptId, deptName)) {
+            System.out.println("department updated successfully ");
         } else {
-            System.out.println("Failed to update hospital");
+            System.out.println("Failed to update department");
         }
         return false;
     }
 
-    public boolean deleteHospital(int hospitalId) throws SQLException {
-        boolean deletedHospital = hospitalRepository.deleteHospital(hospitalId);
-        System.out.println("deleted hospital: "+deletedHospital);
+    public boolean deleteDepartment(int deptId) throws SQLException {
+        boolean deletedDept = departmentRepository.deleteDepartment(deptId);
+        System.out.println("deleted department: "+deletedDept);
 
-        return deletedHospital;
+        return deletedDept;
 
     }
 }
