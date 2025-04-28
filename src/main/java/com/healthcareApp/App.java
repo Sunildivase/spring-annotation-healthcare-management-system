@@ -1,10 +1,7 @@
 package com.healthcareApp;
 
 import com.healthcareApp.config.AppConfig;
-import com.healthcareApp.controller.DepartmentController;
-import com.healthcareApp.controller.DoctorController;
-import com.healthcareApp.controller.HospitalController;
-import com.healthcareApp.controller.PersonController;
+import com.healthcareApp.controller.*;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -66,6 +63,8 @@ public class App {
                     break;
 
                 case 5:
+                    AppointmentController appointmentController = context.getBean("appointmentController",AppointmentController.class);
+                    appointmentController.run();
                     System.out.println("appointment created successfully!!!");
                     break;
 
